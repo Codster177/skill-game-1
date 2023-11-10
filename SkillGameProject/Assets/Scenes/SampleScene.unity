@@ -131,10 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2775917115580263648, guid: 31157a8205d1ba342bad969f7556a204, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3482375282119055997, guid: 31157a8205d1ba342bad969f7556a204, type: 3}
       propertyPath: m_Name
       value: Cannon2
@@ -370,7 +366,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.30894744, g: 0.31678542, b: 0.38679248, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -473,7 +469,7 @@ MonoBehaviour:
   Enemy: {fileID: 1293062101870620682, guid: b6a3e18e5a2081245979eae818c62187, type: 3}
   leftBottomBounds: {x: -8, y: 7}
   rightTopBounds: {x: 8, y: 10}
-  spawnRate: 0.3
+  spawnRate: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

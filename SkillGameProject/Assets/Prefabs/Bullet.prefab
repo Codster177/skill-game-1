@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6216035390488136570}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
+  bulletRend: {fileID: 1272618947134599873}
+  EnemyDeath: {fileID: 5128182530521523155, guid: 98d32b65008f18f41b1b437a1ae3295e, type: 3}
+  bulletsCollide: 0

@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicBullet : MonoBehaviour
 {
     public float bulletSpeed = 50f;
+    [SerializeField]
+    private Renderer bulletRend;
+    [SerializeField]
+    private GameObject EnemyDeath;
+    [SerializeField]
+    private bool bulletsCollide;
     private float startTime;
+    private bool fireDelay = false;
 
     // Update is called once per frame
     void Start()
     {
         startTime = Time.time;
+        StartCoroutine(FireDelayer());
     }
 
     void FixedUpdate()
@@ -25,14 +34,34 @@ public class BasicBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (fireDelay)
+        {
+            if (!bulletRend.isVisible)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Hit Something");
         if (collider.gameObject.CompareTag(tags.enemyTag))
         {
+            Instantiate(EnemyDeath, collider.gameObject.transform.position, quaternion.identity);
             Destroy(collider.gameObject);
+        }
+        if (collider.gameObject.CompareTag(tags.bulletTag))
+        {
+            if (!bulletsCollide)
+            {
+                return;
+            }
         }
         Destroy(gameObject);
     }
+    IEnumerator FireDelayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        fireDelay = true;
+    }
+
 }

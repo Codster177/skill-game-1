@@ -11,6 +11,8 @@ public class ShooterShoot : MonoBehaviour
     private Transform shootPoint;
     [SerializeField]
     private float fireRate = 5f;
+    [SerializeField]
+    private ParticleSystem shotParticles;
     private bool fired = false;
 
     void FixedUpdate()
@@ -35,6 +37,7 @@ public class ShooterShoot : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GameObject shotBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        shotParticles.Play();
     }
     void FireRate()
     {
