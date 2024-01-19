@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using FishNet.Connection;
+using FishNet.Object;
 
-public class ShooterMove : MonoBehaviour
+public class ShooterMove : NetworkBehaviour
 {
     public Vector3 mousePosition;
     [SerializeField]

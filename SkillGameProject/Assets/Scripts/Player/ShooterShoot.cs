@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Connection;
+using FishNet.Object;
 using UnityEngine;
 
-public class ShooterShoot : MonoBehaviour
+public class ShooterShoot : NetworkBehaviour
 {
     [SerializeField]
     private GameObject bullet;
@@ -13,6 +15,8 @@ public class ShooterShoot : MonoBehaviour
     private float fireRate = 5f;
     [SerializeField]
     private ParticleSystem shotParticles;
+    [SerializeField]
+    private ShooterMove thisMovement;
     private bool fired = false;
 
     void FixedUpdate()
@@ -56,4 +60,14 @@ public class ShooterShoot : MonoBehaviour
         yield return new WaitForSeconds(fireRate);
         fired = false;
     }
+
+    // public override void OnStartClient()
+    // {
+    //     base.OnStartClient();
+    //     if (!base.IsOwner)
+    //     {
+    //         gameObject.GetComponent<ShooterShoot>().enabled = false;
+    //         thisMovement.enabled = false;
+    //     }
+    // }
 }
