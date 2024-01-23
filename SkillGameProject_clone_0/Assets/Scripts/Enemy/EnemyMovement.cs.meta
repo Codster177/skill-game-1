@@ -3,7 +3,10 @@ guid: 7744edfb6708e4841ba7b575aa6f1933
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _addedNetworkObject: {instanceID: 0}
+  - _networkObjectCache: {instanceID: 0}
+  - enemyDestroyParticles: {fileID: 5128182530521523155, guid: 98d32b65008f18f41b1b437a1ae3295e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

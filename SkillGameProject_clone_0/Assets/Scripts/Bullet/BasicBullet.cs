@@ -32,11 +32,11 @@ public class BasicBullet : NetworkBehaviour
 
     void Update()
     {
-        if ((Time.time - startTime) >= 20f)
+        if (((Time.time - startTime) >= 20f) && (!base.IsServer))
         {
             Destroy(gameObject);
         }
-        if (fireDelay)
+        if (fireDelay && (!base.IsServer))
         {
             if (!bulletRend.isVisible)
             {
@@ -48,8 +48,11 @@ public class BasicBullet : NetworkBehaviour
     {
         if (collider.gameObject.CompareTag(tags.enemyTag))
         {
-            GameObject deathParticles = Instantiate(EnemyDeath, collider.gameObject.transform.position, quaternion.identity);
-            ServerManager.Spawn(deathParticles);
+            if (base.IsServer)
+            {
+                GameObject deathParticles = Instantiate(EnemyDeath, collider.gameObject.transform.position, quaternion.identity);
+                ServerManager.Spawn(deathParticles);
+            }
             Destroy(collider.gameObject);
         }
         if (collider.gameObject.CompareTag(tags.bulletTag))

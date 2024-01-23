@@ -64,7 +64,6 @@ namespace FishNet.Component.Spawning
             if (_networkManager != null)
                 _networkManager.SceneManager.OnClientLoadedStartScenes -= SceneManager_OnClientLoadedStartScenes;
         }
- 
 
         /// <summary>
         /// Initializes this script for use.

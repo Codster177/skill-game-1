@@ -19,6 +19,16 @@ public class ShooterShoot : NetworkBehaviour
     private ShooterMove thisMovement;
     private bool fired = false;
 
+    void Start()
+    {
+        ServerManager.Spawn(gameObject);
+        if (base.IsServer)
+        {
+            gameObject.GetComponent<ShooterShoot>().enabled = false;
+            thisMovement.enabled = false;
+        }
+    }
+
     void FixedUpdate()
     {
         if (Input.GetButton("Fire1"))

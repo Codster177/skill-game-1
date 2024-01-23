@@ -5,7 +5,7 @@ using UnityEngine;
 using FishNet.Connection;
 using FishNet.Object;
 
-public class Spawner : NetworkObject
+public class Spawner : NetworkBehaviour
 {
     [SerializeField]
     private GameObject Enemy;
@@ -37,5 +37,11 @@ public class Spawner : NetworkObject
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3((rightTopBounds.x + leftBottomBounds.x)/2, (rightTopBounds.y + leftBottomBounds.y)/2, 0f), new Vector3(rightTopBounds.x - leftBottomBounds.x, rightTopBounds.y - leftBottomBounds.y, 0f));
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        this.enabled = false;
     }
 }
