@@ -22,7 +22,7 @@ public class ShooterShoot : NetworkBehaviour
     void Start()
     {
         ServerManager.Spawn(gameObject);
-        if (base.IsServer)
+        if (base.IsServer && (!GameManager.publicGameManager.testing))
         {
             gameObject.GetComponent<ShooterShoot>().enabled = false;
             thisMovement.enabled = false;
@@ -31,7 +31,7 @@ public class ShooterShoot : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && GameManager.publicGameManager.getGameActive())
         {
             if (!fired)
             {

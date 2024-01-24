@@ -99,7 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7744edfb6708e4841ba7b575aa6f1933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 4750910271822559951}
+  _networkObjectCache: {fileID: 0}
   enemySpeed: 2.5
+  EnemyDeath: {fileID: 5128182530521523155, guid: 98d32b65008f18f41b1b437a1ae3295e, type: 3}
 --- !u!58 &-8920018411817122004
 CircleCollider2D:
   m_ObjectHideFlags: 0

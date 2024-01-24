@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using FishNet.Object;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : NetworkBehaviour
 {
     [SerializeField]
     private float enemySpeed = 5f;
+    [SerializeField]
+    private GameObject EnemyDeath;
     private float startTime;
 
     // Update is called once per frame
@@ -23,5 +27,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void onDeath()
+    {
+        GameObject deathParticles = Instantiate(EnemyDeath, transform.position, quaternion.identity);
+        ServerManager.Spawn(deathParticles);
+        Destroy(gameObject);
     }
 }

@@ -18,7 +18,7 @@ public class Spawner : NetworkBehaviour
     private bool spawnBool = true;
     void Update()
     {
-        if (spawnBool)
+        if (spawnBool && GameManager.publicGameManager.getGameActive())
         {
             StartCoroutine(SpawnThing());
         }
@@ -42,6 +42,13 @@ public class Spawner : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        this.enabled = false;
+        if (GameManager.publicGameManager.testing == true)
+        {
+            this.enabled = true;
+        }
+        else
+        {
+            this.enabled = false;
+        }
     }
 }

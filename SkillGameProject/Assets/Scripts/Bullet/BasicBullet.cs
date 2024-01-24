@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using FishNet.Connection;
@@ -11,8 +10,6 @@ public class BasicBullet : NetworkBehaviour
     public float bulletSpeed = 50f;
     [SerializeField]
     private Renderer bulletRend;
-    [SerializeField]
-    private GameObject EnemyDeath;
     [SerializeField]
     private bool bulletsCollide;
     private float startTime;
@@ -50,10 +47,8 @@ public class BasicBullet : NetworkBehaviour
         {
             if (base.IsServer)
             {
-                GameObject deathParticles = Instantiate(EnemyDeath, collider.gameObject.transform.position, quaternion.identity);
-                ServerManager.Spawn(deathParticles);
+                collider.GetComponent<EnemyMovement>().onDeath();
             }
-            Destroy(collider.gameObject);
         }
         if (collider.gameObject.CompareTag(tags.bulletTag))
         {
