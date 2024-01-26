@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using FishNet.Transporting.Tugboat;
 using UnityEngine;
 
@@ -21,4 +23,10 @@ public class NetworkConfig : MonoBehaviour
             tugboatConfig.SetClientAddress(GameManager.publicGameManager.ServerAddress);
         }
     }
+
+    public void ChangePort(ushort newPort)
+    {
+        tugboatConfig.SetPort(newPort);
+    }
+    
 }

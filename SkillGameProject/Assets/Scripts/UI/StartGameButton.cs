@@ -14,6 +14,7 @@ public class StartGameButton : NetworkBehaviour
     void Start()
     {
         startButton.onClick.AddListener(StartButtonClicked);
+        startButton.gameObject.SetActive(false);
     }
     
     void Update()

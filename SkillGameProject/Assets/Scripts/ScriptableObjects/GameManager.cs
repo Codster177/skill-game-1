@@ -9,7 +9,6 @@ public class GameManager : ScriptableObject
     public string ServerAddress;
     public bool testing;
     private bool gameActive;
-    private float startTime;
 
     public bool getGameActive()
     {

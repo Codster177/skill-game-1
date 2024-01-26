@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f94b9c84c72cb41bd13987d7c808a1, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  testing: 1
-  ServerAddress: ec2-3-15-189-221.us-east-2.compute.amazonaws.com
+  ServerAddress: ec2-3-21-135-226.us-east-2.computer.amazonaws.com
+  testing: 0
