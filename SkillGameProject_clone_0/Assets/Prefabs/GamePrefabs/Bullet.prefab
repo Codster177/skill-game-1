@@ -168,7 +168,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1601479374643450043}
   bulletSpeed: 10
   bulletRend: {fileID: 1272618947134599873}
-  EnemyDeath: {fileID: 5128182530521523155, guid: 98d32b65008f18f41b1b437a1ae3295e, type: 3}
   bulletsCollide: 0
 --- !u!114 &1601479374643450043
 MonoBehaviour:
@@ -202,7 +201,7 @@ MonoBehaviour:
   <SpawnableCollectionId>k__BackingField: 0
   _scenePathHash: 0
   <SceneId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 4573550808790962227
+  <AssetPathHash>k__BackingField: 10720113018072684201
 --- !u!114 &-5475442223636274696
 MonoBehaviour:
   m_ObjectHideFlags: 0

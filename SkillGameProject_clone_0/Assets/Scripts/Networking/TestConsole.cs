@@ -58,6 +58,7 @@ public class TestConsole : MonoBehaviour
                 break;
             case 2:
                 GameManager.publicGameManager.testing = command.commandTesting();
+                netConfig.TestingManager();
                 break;
             default:
                 return;
