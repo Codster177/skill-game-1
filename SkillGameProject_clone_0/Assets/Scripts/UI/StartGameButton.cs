@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FishNet.Connection;
 using FishNet.Object;
+using FishNet.Object.Synchronizing;
 
 public class StartGameButton : NetworkBehaviour
 {
@@ -11,18 +12,20 @@ public class StartGameButton : NetworkBehaviour
     private Button startButton;
     [SerializeField]
     private GameClock gameClock;
+    private ActiveUpdate activeUpdate;
     void Start()
     {
         startButton.onClick.AddListener(StartButtonClicked);
         startButton.gameObject.SetActive(false);
+
+        activeUpdate = GetComponent<ActiveUpdate>();
     }
     
     void Update()
     {
-        if (GameManager.publicGameManager.getGameActive() || (!base.IsClient))
+        if (GameManager.publicGameManager.getGameActive())
         {
             startButton.gameObject.SetActive(false);
-
         }
         else
         {
@@ -32,9 +35,7 @@ public class StartGameButton : NetworkBehaviour
 
     void StartButtonClicked()
     {
-        GameManager.publicGameManager.startGameActive();
+        activeUpdate.startCommonGameActive();
         gameClock.startGameActive();
     }
-
-
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
+using FishNet.Object.Synchronizing;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "GameState/GameManager")]

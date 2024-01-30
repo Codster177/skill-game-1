@@ -11,6 +11,5 @@ public class GamestateInit : MonoBehaviour
     void Awake()
     {
         GameManager.publicGameManager = currentGameManager;
-        GameManager.publicGameManager.resetGameActive();
     }
 }
