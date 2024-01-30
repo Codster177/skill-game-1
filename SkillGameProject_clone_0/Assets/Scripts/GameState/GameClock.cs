@@ -8,11 +8,13 @@ using System;
 public class GameClock : MonoBehaviour
 {
     [SerializeField] private TMP_Text clockText;
+    private ActiveUpdate activeUpdate;
     private float startTime;
     private GameObject clockBackground;
 
     void Awake()
     {
+        activeUpdate = gameObject.GetComponent<ActiveUpdate>();
         startTime = -1f;
         clockBackground = clockText.gameObject.transform.parent.gameObject;
         clockText.gameObject.SetActive(false);
@@ -38,7 +40,7 @@ public class GameClock : MonoBehaviour
         }
         if ((Time.timeSinceLevelLoad - startTime) >= 30f)
         {
-            GameManager.publicGameManager.resetGameActive();
+            activeUpdate.stopCommonGameActive();
         }
         clockText.gameObject.SetActive(true);
         clockBackground.SetActive(true);

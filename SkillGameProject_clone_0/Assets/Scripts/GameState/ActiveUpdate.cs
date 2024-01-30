@@ -6,22 +6,47 @@ using UnityEngine;
 
 public class ActiveUpdate : NetworkBehaviour
 {
-    [field: SyncVar] private bool commonGameActive {get; [ServerRpc] set;}
+    [SyncVar] 
+    private bool commonGameActive = false;
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (!base.IsOwner)
+        {
+            this.enabled = false;
+        }
+    }
     void Awake()
     {
         commonGameActive = GameManager.publicGameManager.getGameActive();
     }
     public void startCommonGameActive()
     {
-        commonGameActive = true;
-        GameManager.publicGameManager.startGameActive();
+        updateCommonGameActive(true);
     }
     
-    void Update()
+    public void stopCommonGameActive()
     {
-        if (!GameManager.publicGameManager.getGameActive())
+        updateCommonGameActive(false);
+    }
+
+    void updateCommonGameActive(bool status)
+    {
+        commonGameActive = status;
+    }
+
+    [ServerRpc]
+    public void UpdateGameActive(ActiveUpdate script, bool gameActiveStatus)
+    {
+        script.updateCommonGameActive(gameActiveStatus);
+        if (gameActiveStatus)
         {
-            commonGameActive = false;
+            GameManager.publicGameManager.startGameActive();
+        }
+        else
+        {
+            GameManager.publicGameManager.resetGameActive();
         }
     }
 }
