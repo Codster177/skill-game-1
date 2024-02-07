@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ShooterShoot : NetworkBehaviour
 {
+    [SerializeField] private GameClock gameClock;
+
     [SerializeField]
     private GameObject bullet;
     [SerializeField]
@@ -22,7 +24,7 @@ public class ShooterShoot : NetworkBehaviour
     void Start()
     {
         ServerManager.Spawn(gameObject);
-        if (base.IsServer && (!GameManager.publicGameManager.testing))
+        if (base.IsServer && (!LocalManager.publicLocalManager.testing))
         {
             gameObject.GetComponent<ShooterShoot>().enabled = false;
             thisMovement.enabled = false;
@@ -31,7 +33,7 @@ public class ShooterShoot : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1") && GameManager.publicGameManager.getGameActive())
+        if (Input.GetButton("Fire1") && gameClock.getGameActive())
         {
             if (!fired)
             {

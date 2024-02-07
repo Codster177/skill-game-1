@@ -816,7 +816,6 @@ GameObject:
   - component: {fileID: 500247543}
   - component: {fileID: 500247544}
   - component: {fileID: 500247545}
-  - component: {fileID: 500247546}
   m_Layer: 5
   m_Name: Network Canvas
   m_TagString: Untagged
@@ -942,6 +941,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   _networkBehaviours:
   - {fileID: 500247543}
+  - {fileID: 500247545}
   <ParentNetworkObject>k__BackingField: {fileID: 0}
   <ChildNetworkObjects>k__BackingField:
   - {fileID: 421504931}
@@ -971,23 +971,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee0d4461dd44b74eb6791b6966b67c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockText: {fileID: 485626160}
---- !u!114 &500247546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500247538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eba39428afd192d4e996e33c3092cf76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 500247544}
-  _networkObjectCache: {fileID: 0}
-  commonGameActive: 0
+  _networkObjectCache: {fileID: 500247544}
+  clockText: {fileID: 485626160}
+  startTime: 0
 --- !u!1 &515271268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,6 +1209,7 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 527808587}
   _networkObjectCache: {fileID: 527808587}
+  gameClock: {fileID: 500247545}
   Enemy: {fileID: 1293062101870620682, guid: b6a3e18e5a2081245979eae818c62187, type: 3}
   leftBottomBounds: {x: -8, y: 7}
   rightTopBounds: {x: 8, y: 10}

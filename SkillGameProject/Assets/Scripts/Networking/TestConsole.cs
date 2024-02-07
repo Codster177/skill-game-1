@@ -54,10 +54,10 @@ public class TestConsole : MonoBehaviour
             case 0:
                 return;
             case 1:
-                GameManager.publicGameManager.ServerAddress = command.commandIP();
+                LocalManager.publicLocalManager.ServerAddress = command.commandIP();
                 break;
             case 2:
-                GameManager.publicGameManager.testing = command.commandTesting();
+                LocalManager.publicLocalManager.testing = command.commandTesting();
                 netConfig.TestingManager();
                 break;
             default:

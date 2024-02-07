@@ -23,13 +23,13 @@ public class NetworkConfig : MonoBehaviour
     
     public void TestingManager()
     {
-        if (GameManager.publicGameManager.testing == true)
+        if (LocalManager.publicLocalManager.testing == true)
         {
             tugboatConfig.SetClientAddress("localhost");
         }
         else
         {
-            tugboatConfig.SetClientAddress(GameManager.publicGameManager.ServerAddress);
+            tugboatConfig.SetClientAddress(LocalManager.publicLocalManager.ServerAddress);
         }
     }
 

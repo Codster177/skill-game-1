@@ -12,18 +12,24 @@ public class StartGameButton : NetworkBehaviour
     private Button startButton;
     [SerializeField]
     private GameClock gameClock;
-    private ActiveUpdate activeUpdate;
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (!base.IsOwner)
+        {
+            this.enabled = false;
+        }
+    }
     void Start()
     {
         startButton.onClick.AddListener(StartButtonClicked);
         startButton.gameObject.SetActive(false);
-
-        activeUpdate = GetComponent<ActiveUpdate>();
     }
     
     void Update()
     {
-        if (GameManager.publicGameManager.getGameActive())
+        if (gameClock.getGameActive())
         {
             startButton.gameObject.SetActive(false);
         }
@@ -35,7 +41,6 @@ public class StartGameButton : NetworkBehaviour
 
     void StartButtonClicked()
     {
-        activeUpdate.startCommonGameActive();
-        gameClock.startGameActive();
+        gameClock.startGameActive(gameClock);
     }
 }

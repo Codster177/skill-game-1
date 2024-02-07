@@ -6,11 +6,10 @@ using UnityEngine.EventSystems;
 public class GamestateInit : MonoBehaviour
 {
     [SerializeField]
-    private GameManager currentGameManager;
+    private LocalManager currentGameManager;
 
     void Awake()
     {
-        GameManager.publicGameManager = currentGameManager;
-        GameManager.publicGameManager.resetGameActive();
+        LocalManager.publicLocalManager = currentGameManager;
     }
 }

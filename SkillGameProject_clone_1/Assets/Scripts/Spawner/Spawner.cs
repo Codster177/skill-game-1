@@ -7,6 +7,7 @@ using FishNet.Object;
 
 public class Spawner : NetworkBehaviour
 {
+    [SerializeField] private GameClock gameClock;
     [SerializeField]
     private GameObject Enemy;
     [SerializeField]
@@ -18,7 +19,7 @@ public class Spawner : NetworkBehaviour
     private bool spawnBool = true;
     void Update()
     {
-        if (spawnBool && GameManager.publicGameManager.getGameActive())
+        if (spawnBool && gameClock.getGameActive())
         {
             StartCoroutine(SpawnThing());
         }
@@ -42,7 +43,7 @@ public class Spawner : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if (GameManager.publicGameManager.testing == true)
+        if (LocalManager.publicLocalManager.testing == true)
         {
             this.enabled = true;
         }
